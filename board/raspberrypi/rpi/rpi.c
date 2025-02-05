@@ -18,6 +18,8 @@
 #include <asm/arch/sdhci.h>
 #include <asm/global_data.h>
 #include <dm/platform_data/serial_bcm283x_mu.h>
+#include <broadcom/bcm_board_types.h>
+
 #ifdef CONFIG_ARM64
 #include <asm/armv8/mmu.h>
 #endif
@@ -517,6 +519,9 @@ static void get_board_revision(void)
 	} else {
 		model = &models[rev_type];
 	}
+
+	if (IS_ENABLED(CONFIG_BOARD_TYPES))
+		gd->board_type = rev_type;
 
 	printf("RPI %s (0x%x)\n", model->name, revision);
 }
