@@ -1,0 +1,4 @@
+#include <configs/rpi_arm64_defconfig>
+
+CONFIG_DEFAULT_DEVICE_TREE="broadcom/bcm2712-rpi-5-b"
+CONFIG_OF_UPSTREAM=y
